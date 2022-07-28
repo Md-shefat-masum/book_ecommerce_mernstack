@@ -1,19 +1,13 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { FrontendNavbar, FrontendSearchBar, FrontendTopHeader } from '../FrontendCompontents'
 
 function Header() {
     return (
-        <div className='py-3 shadow bg-light rounded-1'>
-            <ul className='d-flex flex-wrap gap-2'>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/products">Products</Link></li>
-                <li><Link to="/product-details">Product Details</Link></li>
-                <li><Link to="/cart">Cart</Link></li>
-                <li><Link to="/checkout">Checkout</Link></li>
-                <li><Link to="/profile">Profile</Link></li>
-                <li><a href="/#/">Login</a></li>
-            </ul>
-        </div>
+        <header className="header-area header-style-1 header-height-2">
+            <FrontendTopHeader />
+            <FrontendSearchBar />
+            <FrontendNavbar />
+        </header>
     )
 }
 

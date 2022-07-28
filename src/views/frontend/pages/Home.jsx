@@ -1,8 +1,15 @@
 import React from 'react'
+import { 
+    FrontendHomeBanner, 
+    FrontendHomeLatestPorducts 
+} from '../FrontendCompontents'
 
 function Home() {
     return (
-        <div>Home</div>
+        <>
+            <FrontendHomeBanner/>
+            <FrontendHomeLatestPorducts/>
+        </>
     )
 }
 

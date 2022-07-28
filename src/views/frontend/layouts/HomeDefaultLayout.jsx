@@ -1,13 +1,18 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-import { FrontendFooter, FrontendHeader } from '../FrontendCompontents'
+import {
+    FrontendFooter,
+    FrontendHeader,
+} from '../FrontendCompontents'
 
 function HomeDefaultLayout() {
     return (
         <>
-            <FrontendHeader/>
-            <Outlet/>
-            <FrontendFooter/>
+            <FrontendHeader />
+            <main className="main">
+                <Outlet />
+            </main>
+            <FrontendFooter />
         </>
     )
 }
