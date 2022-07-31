@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function SearchBar() {
     return (
@@ -96,6 +97,12 @@ function SearchBar() {
                                             </li>
                                             <li>
                                                 <a href="page-account.html"><i className="fi fi-rs-settings-sliders mr-10" />Setting</a>
+                                            </li>
+                                            <li>
+                                                <Link to="/login"><i className="fi fi-rs-sign-in mr-10" />Sign in</Link>
+                                            </li>
+                                            <li>
+                                                <Link to="/register"><i className="fi fi-rs-sign-up mr-10" />Sign up</Link>
                                             </li>
                                             <li>
                                                 <a href="page-login.html"><i className="fi fi-rs-sign-out mr-10" />Sign out</a>

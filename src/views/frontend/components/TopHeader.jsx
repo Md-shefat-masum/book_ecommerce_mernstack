@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function TopHeader() {
     return (
@@ -26,8 +27,13 @@ function TopHeader() {
                     <div className="col-xl-3 col-lg-4">
                         <div className="header-info header-info-right">
                             <ul>
-                                <li>Need help? Call Us: <strong className="text-brand"> + 1800 900</strong></li>
                                 <li>
+                                    Need help? Call Us: <strong className="text-brand">
+                                        + 1800 900</strong></li>
+                                <li>
+                                    <Link to="/dashboard">go to dashboard</Link>
+                                </li>
+                                {/* <li>
                                     <a className="language-dropdown-active" href="#">English <i className="fi-rs-angle-small-down" /></a>
                                     <ul className="language-dropdown">
                                         <li>
@@ -40,21 +46,7 @@ function TopHeader() {
                                             <a href="#"><img src="assets/imgs/theme/flag-ru.png" alt="" />Pусский</a>
                                         </li>
                                     </ul>
-                                </li>
-                                <li>
-                                    <a className="language-dropdown-active" href="#">USD <i className="fi-rs-angle-small-down" /></a>
-                                    <ul className="language-dropdown">
-                                        <li>
-                                            <a href="#"><img src="assets/imgs/theme/flag-fr.png" alt="" />INR</a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><img src="assets/imgs/theme/flag-dt.png" alt="" />MBP</a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><img src="assets/imgs/theme/flag-ru.png" alt="" />EU</a>
-                                        </li>
-                                    </ul>
-                                </li>
+                                </li> */}
                             </ul>
                         </div>
                     </div>

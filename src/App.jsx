@@ -2,11 +2,16 @@ import React from 'react'
 import {
     BrowserRouter, Route, Routes
 } from 'react-router-dom'
-import { 
-    BackendDashboard, 
-    BackendDefaultLayout, 
-    BackendProductDetails, 
-    BackendProducts 
+import {
+    AuthDefaultLayout,
+    AuthLogin,
+    AuthRegister
+} from './views/auth/AuthCompontents'
+import {
+    BackendDashboard,
+    BackendDefaultLayout,
+    BackendProductDetails,
+    BackendProducts
 } from './views/backend/BackendCompontents'
 
 import {
@@ -31,6 +36,11 @@ function App() {
                     <Route path='cart' element={<FrontendCart />}></Route>
                     <Route path='checkout' element={<FrontendCheckout />}></Route>
                     <Route path='profile' element={<FrontendProfile />}></Route>
+                </Route>
+
+                <Route element={<AuthDefaultLayout />}>
+                    <Route path='login' element={<AuthLogin />}></Route>
+                    <Route path='register' element={<AuthRegister />}></Route>
                 </Route>
 
                 <Route path='/dashboard' element={<BackendDefaultLayout />}>
