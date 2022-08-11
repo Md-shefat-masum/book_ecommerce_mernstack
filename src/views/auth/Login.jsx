@@ -1,27 +1,56 @@
 import React, { useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import useStore from '../../hooks/useStore'
-import { getAuth } from "firebase/auth";
+import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import firebaseConfig from '../../service/firebaseConfig';
+import { initializeApp } from 'firebase/app';
 
 function Login() {
     const { authReducer, dispatchAuth } = useStore();
     const navigate = useNavigate();
-    const auth = getAuth();
 
     useEffect(() => {
         if (authReducer.checkAuth === true) {
             navigate('/dashboard');
         }
-    },[authReducer])
+    }, [authReducer])
 
-    
     const loginWithGoogle = () => {
-        dispatchAuth({type:'loginWithGoogle'});
+        const firebase_app = initializeApp(firebaseConfig);
+        const firebaseAuth = getAuth(firebase_app);
+        const provider = new GoogleAuthProvider();
+
+        signInWithPopup(firebaseAuth, provider)
+            .then((result) => {
+                // This gives you a Google Access Token. You can use it to access the Google API.
+                const credential = GoogleAuthProvider.credentialFromResult(result);
+                const token = credential.accessToken;
+                // The signed-in user info.
+                const user = result.user;
+                // console.log(user);
+                dispatchAuth({
+                    type: 'google_login',
+                    value: {
+                        name: user.displayName,
+                        email: user.email,
+                        image: user.photoURL,
+                    }
+                })
+            }).catch((error) => {
+                // Handle Errors here.
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // The email of the user's account used.
+                const email = error.customData.email;
+                // The AuthCredential type that was used.
+                const credential = GoogleAuthProvider.credentialFromError(error);
+                // ...
+            });
     }
 
     return (
         <div className="container">
-           data:  {JSON.stringify(authReducer)}
+            data:  {JSON.stringify(authReducer)}
             {/* Outer Row */}
             <div className="row justify-content-center">
                 <div className="col-xl-10 col-lg-12 col-md-9">

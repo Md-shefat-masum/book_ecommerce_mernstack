@@ -170,7 +170,7 @@ function Topbar() {
                             <span className="mr-2 d-none d-lg-inline text-gray-600 small">
                                 {authReducer.authDetails.name}
                             </span>
-                            <img className="img-profile rounded-circle" src={authReducer.authDetails.photo} />
+                            <img className="img-profile rounded-circle" src={authReducer.authDetails.image} />
                         </a>
                         {/* Dropdown - User Information */}
                         <div className="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
